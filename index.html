@@ -77,6 +77,11 @@
         .instagram-link a:hover {
             text-decoration: underline;
         }
+        .timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
     </style>
 </head>
 <body>
@@ -120,6 +125,21 @@
             <li><strong>India:</strong> Varun Chakravarthy – 5 wickets for 24 runs, Hardik Pandya – 40 runs</li>
         </ul>
         <p><strong>Summary:</strong> England posted 171/9, with key contributions from Ben Duckett and Liam Livingstone. Varun Chakravarthy's 5-wicket haul gave India a chance, but despite Hardik Pandya's fightback, India fell short, finishing at 145/9.</p>
+    </div>
+
+    <div class="match">
+        <h3>Match 4: India vs England</h3>
+        <p><strong>Date:</strong> January 31, 2025</p>
+        <p><strong>Venue:</strong> Maharashtra Cricket Association Stadium, Pune</p>
+        <p><strong>Time:</strong> 7:00 PM IST</p>
+        <p><strong>Result:</strong> [Details not available yet]</p>
+        <p><strong>Top Performers:</strong></p>
+        <ul>
+            <li><strong>India:</strong> [Details to be updated]</li>
+            <li><strong>England:</strong> [Details to be updated]</li>
+        </ul>
+        <p><strong>Summary:</strong> [Details to be updated]</p>
+        <p class="timer" id="countdownTimer">Time Remaining: Loading...</p>
     </div>
 
     <div class="winner">
@@ -201,12 +221,38 @@
     <div class="instagram-link">
         <p>Follow me on Instagram: <a href="https://www.instagram.com/mp_editz9p" target="_blank">mp_editz9p</a></p>
     </div>
+
+    <script>
+        // Countdown Timer for Match 4
+        const countdownDate = new Date("January 31, 2025 19:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdownTimer").innerHTML =
+                "Time Remaining: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdownTimer").innerHTML = "The match is live now!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
 
-       
-   
+    
+      
+        
 
-    
-    
-   
+ 
+
+
+           
+       
