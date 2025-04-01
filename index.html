@@ -3,250 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India vs England T20 Series 2025</title>
+    <title>Surprise for You!</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 20px;
-            background-color: #f0f8ff;
-        }
-        h1, h2 {
+            background: black;
+            color: lime;
+            font-family: 'Courier New', monospace;
             text-align: center;
-            color: #2c3e50;
+            padding: 50px;
+            overflow: hidden;
         }
-        .match {
-            background-color: #ffffff;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .surprise {
+            font-size: 2em;
+            color: yellow;
+            margin-bottom: 20px;
         }
-        .match h3 {
-            margin: 0;
-            color: #2980b9;
-        }
-        .match p {
-            margin: 5px 0;
-            color: #34495e;
-        }
-        .team {
-            display: inline-block;
-            width: 45%;
-            vertical-align: top;
-            margin: 0 2.5%;
-            background-color: #ecf0f1;
-            padding: 10px;
-            border-radius: 8px;
-        }
-        .team h4 {
-            text-align: center;
-            color: #2980b9;
-        }
-        .team ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .team li {
-            padding: 5px 0;
-            color: #34495e;
-        }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.8em;
-            color: #7f8c8d;
-        }
-        .winner {
-            background-color: #f39c12;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.2em;
-            color: #ffffff;
-        }
-        .instagram-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .instagram-link a {
-            font-size: 1.2em;
-            color: #8e44ad;
-            text-decoration: none;
-        }
-        .instagram-link a:hover {
-            text-decoration: underline;
-        }
-        .timer {
+        .start-btn {
+            padding: 10px 20px;
             font-size: 1.5em;
-            font-weight: bold;
-            color: #e74c3c;
+            cursor: pointer;
+            background: lime;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+        .warning, .hack-text, .code-container, .lock-warning, .final-warning {
+            display: none;
+        }
+        .warning {
+            font-size: 2em;
+            color: red;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .hack-text {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: lime;
+        }
+        .code-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: black;
+            color: lime;
+            font-size: 1.2em;
+        }
+        .code {
+            position: absolute;
+            white-space: pre;
+            animation: scroll 5s linear infinite;
+        }
+        @keyframes scroll {
+            from { top: 100%; }
+            to { top: -100%; }
+        }
+        .lock-warning, .final-warning {
+            font-size: 1.5em;
+            color: red;
+            margin-top: 20px;
+        }
+        .copyright {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            color: gray;
+            font-size: 0.8em;
+        }
+        /* Flashy Animation */
+        @keyframes flashy {
+            0% { transform: scale(1); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .flashy {
+            animation: flashy 1s ease-in-out forwards;
         }
     </style>
+</head>
+<body>
+    <h1 class="surprise">🎁 See Surprise for You! 🎁</h1>
+    <button class="start-btn" onclick="startPrank()">Click Here</button>
+    
+    <h1 class="warning">⚠ SYSTEM FAILURE DETECTED ⚠</h1>
+    <p class="hack-text">Your device has been hacked...</p>
+    <p class="hack-text">Attempting to restore system files... Please wait.</p>
+    <div class="code-container">
+        <div class="code">
+            Initializing Hack...
+            Accessing System Files...
+            Bypassing Firewall...
+            Uploading Trojan...
+            Deleting System32...
+            Encrypting Files...
+            Sending Data to Dark Web...
+            ERROR: Unable to Terminate Process...
+        </div>
+    </div>
+    <p class="lock-warning">⚠ You cannot exit this page! Even if you close it, the hacking will continue in the background! ⚠</p>
+    <p class="final-warning" id="prank-reveal" style="color: red; display: none;">⚠ Your system is now completely under control. There is no escape. ⚠</p>
+    
+    <div class="copyright">© 2025 Created by Monish Pandey</div>
+
     <script>
-        // Countdown Timer function
-        function startCountdown() {
-            const targetDate = new Date("February 2, 2025 19:00:00").getTime();
-
-            const interval = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("countdownTimer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-                if (distance < 0) {
+        function startPrank() {
+            document.querySelector('.surprise').style.display = 'none';
+            document.querySelector('.start-btn').style.display = 'none';
+            document.querySelector('.warning').style.display = 'block';
+            document.querySelectorAll('.hack-text').forEach(el => el.style.display = 'block');
+            document.querySelector('.code-container').style.display = 'block';
+            document.querySelector('.lock-warning').style.display = 'block';
+            
+            let count = 20;  // Countdown remains 20 seconds
+            const interval = setInterval(() => {
+                document.querySelector('.hack-text').innerHTML = `System recovery in progress... Please wait. ${count} seconds`;
+                count--;
+                if (count < 0) {
                     clearInterval(interval);
-                    document.getElementById("countdownTimer").innerHTML = "Match Started!";
+                    document.querySelector('.final-warning').style.display = 'block';
+                    // Show the prank message immediately after the countdown
+                    const prankMessage = document.getElementById('prank-reveal');
+                    prankMessage.style.display = 'block';
+                    prankMessage.classList.add('flashy');
+                    setTimeout(() => {
+                        document.body.innerHTML = '<h1 style="color: red;">APRIL FOOLS! 😂</h1>';
+                    }, 1000); // Short delay after the timer finishes
                 }
             }, 1000);
+            
+            // Preventing the user from closing or leaving the page
+            window.onbeforeunload = function() {
+                return "You cannot leave now! Your system is compromised!";
+            };
+            
+            // Disabling right-click
+            document.addEventListener('contextmenu', event => event.preventDefault());
+            
+            // Preventing keyboard shortcuts
+            document.addEventListener('keydown', function(event) {
+                if (event.ctrlKey || event.key === "Escape" || event.key === "F5") {
+                    event.preventDefault();
+                }
+            });
         }
     </script>
-</head>
-<body onload="startCountdown()">
-    <h1>India vs England T20 Series 2025</h1>
-    <h2>Match Results and Details</h2>
-
-    <!-- Match 1 -->
-    <div class="match">
-        <h3>Match 1: India vs England</h3>
-        <p><strong>Date:</strong> January 22, 2025</p>
-        <p><strong>Venue:</strong> Eden Gardens, Kolkata</p>
-        <p><strong>Result:</strong> India won by 7 wickets (with 43 balls remaining)</p>
-        <p><strong>Top Performers:</strong></p>
-        <ul>
-            <li><strong>India:</strong> Abhishek Sharma – 79 runs off 34 balls</li>
-            <li><strong>England:</strong> Jos Buttler – 68 runs off 44 balls</li>
-        </ul>
-        <p><strong>Summary:</strong> India chased down a target of 133 runs in just 12.5 overs, with Abhishek Sharma's explosive batting leading the way. England's innings were restricted by India's bowlers, with Arshdeep Singh and Varun Chakravarthy taking crucial wickets.</p>
-    </div>
-
-    <!-- Match 2 -->
-    <div class="match">
-        <h3>Match 2: India vs England</h3>
-        <p><strong>Date:</strong> January 25, 2025</p>
-        <p><strong>Venue:</strong> M.A. Chidambaram Stadium, Chennai</p>
-        <p><strong>Result:</strong> India won by 2 wickets</p>
-        <p><strong>Top Performers:</strong></p>
-        <ul>
-            <li><strong>India:</strong> Tilak Varma – 72* runs off 55 balls</li>
-            <li><strong>England:</strong> Brydon Carse – 31 runs off 17 balls, 3 wickets</li>
-        </ul>
-        <p><strong>Summary:</strong> In a thrilling encounter, India chased down 166 runs with four balls to spare. Tilak Varma's unbeaten 72 guided India to victory, while Brydon Carse's all-round performance kept England in the game.</p>
-    </div>
-
-    <!-- Match 3 -->
-    <div class="match">
-        <h3>Match 3: India vs England</h3>
-        <p><strong>Date:</strong> January 28, 2025</p>
-        <p><strong>Venue:</strong> Rajkot</p>
-        <p><strong>Result:</strong> England won by 26 runs</p>
-        <p><strong>Top Performers:</strong></p>
-        <ul>
-            <li><strong>England:</strong> Ben Duckett – 51 runs off 28 balls, Liam Livingstone – 43 runs off 24 balls, Adil Rashid – 1 wicket for 15 runs</li>
-            <li><strong>India:</strong> Varun Chakravarthy – 5 wickets for 24 runs, Hardik Pandya – 40 runs</li>
-        </ul>
-        <p><strong>Summary:</strong> England posted 171/9, with key contributions from Ben Duckett and Liam Livingstone. Varun Chakravarthy's 5-wicket haul gave India a chance, but despite Hardik Pandya's fightback, India fell short, finishing at 145/9.</p>
-    </div>
-
-    <!-- Match 4 -->
-    <div class="match">
-        <h3>Match 4: India vs England</h3>
-        <p><strong>Date:</strong> January 31, 2025</p>
-        <p><strong>Venue:</strong> Maharashtra Cricket Association Stadium, Pune</p>
-        <p><strong>Time:</strong> 7:00 PM IST</p>
-        <p><strong>Result:</strong> India won by 2 wickets</p>
-        <p><strong>Top Performers:</strong></p>
-        <ul>
-            <li><strong>India:</strong> Hardik Pandya – 52 runs off 40 balls</li>
-            <li><strong>England:</strong> Ben Duckett – 34 runs off 24 balls, Sam Curran – 3 wickets for 35 runs</li>
-        </ul>
-        <p><strong>Summary:</strong> India chased down 165 runs with just one ball remaining, led by Hardik Pandya's fighting 52 runs. Sam Curran's three-wicket haul was crucial in pushing the game to the final stages.</p>
-    </div>
-
-    <!-- Match 5 (Upcoming) -->
-    <div class="match">
-        <h3>Match 5: India vs England</h3>
-        <p><strong>Date:</strong> February 2, 2025</p>
-        <p><strong>Venue:</strong> Wankhede Stadium, Mumbai</p>
-        <p><strong>Time:</strong> 7:00 PM IST</p>
-        <p><strong>Details:</strong> The final match of the 5-match series. India leads 3-1, and England will try to secure a win and make a comeback in the series.</p>
-        <p><strong>Countdown to Match 5:</strong></p>
-        <p class="timer" id="countdownTimer"></p>
-    </div>
-
-    <div class="winner">
-        <h2>Series Status: India leads 3-1</h2>
-        <p>India has secured a 3-1 lead in the 5-match T20 series. The final match is scheduled to be held in Mumbai on February 2, 2025.</p>
-    </div>
-
-    <h2>Team Performances</h2>
-
-    <!-- India Team -->
-    <div class="team">
-        <h4>India</h4>
-        <ul>
-            <li><strong>Abhishek Sharma:</strong> 79 runs off 34 balls (Match 1)</li>
-            <li><strong>Tilak Varma:</strong> 72* runs off 55 balls (Match 2)</li>
-            <li><strong>Hardik Pandya:</strong> 52 runs off 40 balls (Match 4)</li>
-            <li><strong>Varun Chakravarthy:</strong> 5 wickets for 24 runs (Match 3)</li>
-            <li><strong>Arshdeep Singh:</strong> Key wickets in both Matches 1 and 2</li>
-        </ul>
-    </div>
-
-    <!-- England Team -->
-    <div class="team">
-        <h4>England</h4>
-        <ul>
-            <li><strong>Jos Buttler:</strong> 68 runs off 44 balls (Match 1)</li>
-            <li><strong>Brydon Carse:</strong> 31 runs off 17 balls, 3 wickets (Match 2)</li>
-            <li><strong>Ben Duckett:</strong> 51 runs off 28 balls (Match 3)</li>
-            <li><strong>Sam Curran:</strong> 3 wickets for 35 runs (Match 4)</li>
-            <li><strong>Liam Livingstone:</strong> 43 runs off 24 balls (Match 3)</li>
-        </ul>
-    </div>
-
-    <h2>Team Squads</h2>
-
-    <!-- India Squad -->
-    <div class="team">
-        <h4>India</h4>
-        <ul>
-            <li><strong>Suryakumar Yadav (C)</strong></li>
-            <li><strong>Sanju Samson (WK)</strong></li>
-            <li><strong>Abhishek Sharma</strong></li>
-            <li><strong>Hardik Pandya</strong></li>
-            <li><strong>Ravindra Jadeja</strong></li>
-            <li><strong>Arshdeep Singh</strong></li>
-            <li><strong>Varun Chakravarthy</strong></li>
-        </ul>
-    </div>
-
-    <!-- England Squad -->
-    <div class="team">
-        <h4>England</h4>
-        <ul>
-            <li><strong>Jos Buttler (C)</strong></li>
-            <li><strong>Ben Stokes</strong></li>
-            <li><strong>Sam Curran</strong></li>
-            <li><strong>Liam Livingstone</strong></li>
-            <li><strong>David Willey</strong></li>
-            <li><strong>Ben Duckett</strong></li>
-        </ul>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Monish Pandey. All rights reserved.</p>
-    </footer>
-
-    <div class="instagram-link">
-        <p>Follow me on Instagram: <a href="https://www.instagram.com/mp_editz9p" target="_blank">mp_editz9p</a></p>
-    </div>
-
 </body>
 </html>
 
