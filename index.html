@@ -10,7 +10,8 @@
             color: lime;
             font-family: 'Courier New', monospace;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
+            margin: 0;
             overflow: hidden;
         }
         .surprise {
@@ -83,6 +84,23 @@
         .flashy {
             animation: flashy 1s ease-in-out forwards;
         }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .surprise {
+                font-size: 1.5em;
+            }
+            .start-btn {
+                font-size: 1.2em;
+                padding: 8px 16px;
+            }
+            .warning, .hack-text, .lock-warning, .final-warning {
+                font-size: 1.2em;
+            }
+            .code {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -153,6 +171,7 @@
     </script>
 </body>
 </html>
+
 
    
        
