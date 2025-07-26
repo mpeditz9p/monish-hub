@@ -1,181 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surprise for You!</title>
-    <style>
-        body {
-            background: black;
-            color: lime;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            overflow: hidden;
-        }
-        .surprise {
-            font-size: 2em;
-            color: yellow;
-            margin-bottom: 20px;
-        }
-        .start-btn {
-            padding: 10px 20px;
-            font-size: 1.5em;
-            cursor: pointer;
-            background: lime;
-            color: black;
-            border: none;
-            border-radius: 5px;
-        }
-        .warning, .hack-text, .code-container, .lock-warning, .final-warning {
-            display: none;
-        }
-        .warning {
-            font-size: 2em;
-            color: red;
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        .hack-text {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: lime;
-        }
-        .code-container {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            background: black;
-            color: lime;
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
-        .code {
-            position: absolute;
-            white-space: pre;
-            animation: scroll 5s linear infinite;
-        }
-        @keyframes scroll {
-            from { top: 100%; }
-            to { top: -100%; }
-        }
-        .lock-warning, .final-warning {
-            font-size: 1.5em;
-            color: red;
-            margin-top: 20px;
-        }
-        .copyright {
-            position: fixed;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            color: gray;
-            font-size: 0.8em;
-        }
-        /* Flashy Animation */
-        @keyframes flashy {
-            0% { transform: scale(1); opacity: 0; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); opacity: 0; }
-        }
-        .flashy {
-            animation: flashy 1s ease-in-out forwards;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 600px) {
-            .surprise {
-                font-size: 1.5em;
-            }
-            .start-btn {
-                font-size: 1.2em;
-                padding: 8px 16px;
-            }
-            .warning, .hack-text, .lock-warning, .final-warning {
-                font-size: 1.2em;
-            }
-            .code {
-                font-size: 1em; /* Reduced font size for better visibility on mobile */
-            }
-            .code-container {
-                height: 150px; /* Adjust height for mobile view */
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monish Hub</title>
+<style>
+  body {
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color:#222;
+  }
+  header {
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    color:#fff;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  }
+  header h1 {
+    margin:0;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  nav {
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  }
+  nav a {
+    color:#333;
+    text-decoration:none;
+    padding:14px 25px;
+    display:block;
+    transition: background 0.3s, color 0.3s;
+    font-weight:600;
+  }
+  nav a:hover {
+    background:#c33764;
+    color:#fff;
+  }
+  .container {
+    padding:40px 20px;
+    max-width:1200px;
+    margin:auto;
+  }
+  h2 {
+    text-align:center;
+    font-size:28px;
+    margin-bottom:20px;
+    color:#1d2671;
+  }
+  .section-box {
+    background:#fff;
+    border-radius:12px;
+    padding:30px;
+    margin-bottom:40px;
+    box-shadow:0 6px 12px rgba(0,0,0,0.08);
+    transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .section-box:hover {
+    transform:translateY(-5px);
+    box-shadow:0 12px 24px rgba(0,0,0,0.15);
+  }
+  .website-list {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:30px;
+  }
+  .card {
+    background:#fafafa;
+    border-radius:12px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.08);
+    padding:25px;
+    transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 8px 16px rgba(0,0,0,0.15);
+  }
+  .card h3 {
+    margin-top:0;
+    color:#c33764;
+    font-size:20px;
+  }
+  .card p {
+    font-size:15px;
+    color:#555;
+  }
+  .card a {
+    display:inline-block;
+    margin-top:12px;
+    text-decoration:none;
+    background:#1d2671;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:6px;
+    font-weight:bold;
+    transition: background 0.3s;
+  }
+  .card a:hover {
+    background:#c33764;
+  }
+  .insta-btn {
+    display:inline-block;
+    margin-top:15px;
+    text-decoration:none;
+    background:#E1306C;
+    color:#fff;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:background 0.3s;
+  }
+  .insta-btn:hover {
+    background:#ad1457;
+  }
+  footer {
+    background:#1d2671;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    margin-top:50px;
+    font-size:14px;
+  }
+</style>
 </head>
 <body>
-    <h1 class="surprise">🎁 See Surprise for You! 🎁</h1>
-    <button class="start-btn" onclick="startPrank()">Click Here</button>
-    
-    <h1 class="warning">⚠ SYSTEM FAILURE DETECTED ⚠</h1>
-    <p class="hack-text">Your device has been hacked...</p>
-    <p class="hack-text">Attempting to restore system files... Please wait.</p>
-    <div class="code-container">
-        <div class="code">
-            Initializing Hack...
-            Accessing System Files...
-            Bypassing Firewall...
-            Uploading Trojan...
-            Deleting System32...
-            Encrypting Files...
-            Sending Data to Dark Web...
-            ERROR: Unable to Terminate Process...
-        </div>
-    </div>
-    <p class="lock-warning">⚠ You cannot exit this page! Even if you close it, the hacking will continue in the background! ⚠</p>
-    <p class="final-warning" id="prank-reveal" style="color: red; display: none;">⚠ Your system is now completely under control. There is no escape. ⚠</p>
-    
-    <div class="copyright">© 2025 Created by Monish Pandey</div>
 
-    <script>
-        function startPrank() {
-            document.querySelector('.surprise').style.display = 'none';
-            document.querySelector('.start-btn').style.display = 'none';
-            document.querySelector('.warning').style.display = 'block';
-            document.querySelectorAll('.hack-text').forEach(el => el.style.display = 'block');
-            document.querySelector('.code-container').style.display = 'block';
-            document.querySelector('.lock-warning').style.display = 'block';
-            
-            let count = 20;  // Countdown remains 20 seconds
-            const interval = setInterval(() => {
-                document.querySelector('.hack-text').innerHTML = `System recovery in progress... Please wait. ${count} seconds`;
-                count--;
-                if (count < 0) {
-                    clearInterval(interval);
-                    document.querySelector('.final-warning').style.display = 'block';
-                    // Show the prank message immediately after the countdown
-                    const prankMessage = document.getElementById('prank-reveal');
-                    prankMessage.style.display = 'block';
-                    prankMessage.classList.add('flashy');
-                    setTimeout(() => {
-                        document.body.innerHTML = '<h1 style="color: red;">APRIL FOOLS! 😂</h1>';
-                    }, 1000); // Short delay after the timer finishes
-                }
-            }, 1000);
-            
-            // Preventing the user from closing or leaving the page
-            window.onbeforeunload = function() {
-                return "You cannot leave now! Your system is compromised!";
-            };
-            
-            // Disabling right-click
-            document.addEventListener('contextmenu', event => event.preventDefault());
-            
-            // Preventing keyboard shortcuts
-            document.addEventListener('keydown', function(event) {
-                if (event.ctrlKey || event.key === "Escape" || event.key === "F5") {
-                    event.preventDefault();
-                }
-            });
-        }
-    </script>
+<header>
+  <h1>Monish Hub</h1>
+  <div style="font-size:14px; opacity:0.9;">Your Websites in One Place</div>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#ourwebsites">Our Websites</a>
+  <a href="#about">About Me</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container" id="home">
+  <div class="section-box">
+    <h2>Home</h2>
+    <p style="text-align:center; font-size:18px;">Welcome to Monish Hub — A professional portfolio where you can explore all my websites and projects.</p>
+  </div>
+</div>
+
+<div class="container" id="ourwebsites">
+  <div class="section-box">
+    <h2>Our Websites</h2>
+    <div class="website-list">
+      <div class="card">
+        <h3>Website One</h3>
+        <p>This is my first website, which is about cricket fantasy predictions.</p>
+        <a href="https://example1.com" target="_blank">Visit Website</a>
+      </div>
+      <div class="card">
+        <h3>Website Two</h3>
+        <p>A professional color prediction platform I built for fun and practice.</p>
+        <a href="https://example2.com" target="_blank">Visit Website</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="about">
+  <div class="section-box">
+    <h2>About Me</h2>
+    <p style="text-align:center; font-size:16px; max-width:800px; margin:auto;">Hi! I’m Monish, a passionate web developer and designer. I love creating colorful, user-friendly, and professional websites. My goal is to build projects that people enjoy using. Stay tuned for more!</p>
+  </div>
+</div>
+
+<div class="container" id="contact">
+  <div class="section-box">
+    <h2>Contact</h2>
+    <p style="text-align:center; font-size:16px; margin-top:15px;">Message me directly on Instagram:</p>
+    <div style="text-align:center;">
+      <a class="insta-btn" href="https://instagram.com/monish_7pandey" target="_blank">Message on Instagram</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Monish Hub. Designed and developed by Monish.
+</footer>
+
 </body>
 </html>
 
+    
+          
+
+  
+          
+       
+           
 
    
        
